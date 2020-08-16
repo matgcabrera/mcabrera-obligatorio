@@ -33,17 +33,59 @@
       max-width: 330px;
       padding: 15px;
       margin: auto;
+
+      border: 1px solid gray;
     }
+
+    #loginbutton {
+      background: gray;
+      border:none;
+      margin-top:25px;
+      color:white;
+      padding: 10px;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    .textbox {
+      margin-top: 25px;
+    }
+    #error-user,
+    #error-passwd {
+      display: none;
+      margin-top: 5px;
+    }
+
+    #loginpic {
+      float: inline-start;
+      width: 100%;
+    }
+
   </style>
 </head>
 
 <body class="text-center">
   <div class="container p-5">
+    <!---  
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    </div>--->
+    
+    <div class="signin">
+      <h1>Login</h1>
+      <img src="img/login.png" alt="Login" id="loginpic">
+      <form id="form-login" onsubmit="validarForm()" method="post">        
+        <input id="iduser" type="text" name="usuario" placeholder="Usuario" onblur="validarLogin(this.value, this.name)" class="textbox"/>
+        <div id="error-user">Debe ingresar su usuario</div>
+        <input id="idpassword" type="password" name="password" placeholder="Contraseña" onblur="validarLogin(this.value, this.name)" class="textbox"/>
+        <div id="error-passwd">Debe ingresar su contraseña</div>
+        <div id="error-login"></div>
+        <button type="submit" id="loginbutton" onclick="validarButton()">Ingresar</button>
+        
+      </form>
     </div>
   </div>
 
