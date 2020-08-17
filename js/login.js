@@ -4,13 +4,13 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
-
+//guardar elementos html en variables
 var user = document.forms["form-login"]["usuario"];
 var passwd = document.forms["form-login"]["password"];
 var error_user = document.getElementById("error-user");
 var error_passwd = document.getElementById("error-passwd");
 
-
+//validacion para onblur de inputs
 function validarLogin(value, name){
     if (value == "" || value == null){
         if (name == "usuario"){
@@ -29,7 +29,8 @@ function validarLogin(value, name){
 user.addEventListener("textInput", userInput);
 passwd.addEventListener("textInput", passwdInput);
 
-function validarButton() {
+//validacion al presionar "ingresar"
+function validarForm() {
     if (user.value.lenght == 0 || user.value == "" || user.value == null) {
         error_user.style.display = "block";
         document.forms["form-login"]["usuario"].style.border = "1px solid red";
@@ -43,6 +44,7 @@ function validarButton() {
     }
 }
 
+//remueve mensaje de error al completar campo
 function userInput(){
     if (user.value.lenght != 0){
         error_user.style.display = "none";
