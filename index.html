@@ -81,7 +81,7 @@
     <div class="signin">
       <h1>Login</h1>
       <img src="img/login.png" alt="Login" id="loginpic">
-      <form id="form-login" onsubmit="return validarForm()" method="post" action="index2.html" >        
+      <form id="form-login" onsubmit="return validarForm()" method="get" action="index2.html" >        
         <input id="iduser" type="text" name="usuario" placeholder="Usuario" onblur="validarLogin(this.value, this.name)"/>
         <div id="error-user">Debe ingresar su usuario</div>
         <input id="idpassword" type="password" name="password" placeholder="Contraseña" onblur="validarLogin(this.value, this.name)"/>
