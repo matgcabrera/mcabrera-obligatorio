@@ -5,36 +5,55 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
-var user = document.forms["form-login"]["usuario"].value;
-var passwd = document.forms["form-login"]["password"].value;
+var user = document.forms["form-login"]["usuario"];
+var passwd = document.forms["form-login"]["password"];
 var error_user = document.getElementById("error-user");
 var error_passwd = document.getElementById("error-passwd");
 
+
 function validarLogin(value, name){
     if (value == "" || value == null){
-        document.getElementById("error-login").innerHTML = "Debe ingresar su " + name;
-        error_user.style.display = "block";
-        return false;
+        if (name == "usuario"){
+            error_user.style.display = "block";
+            document.forms["form-login"]["usuario"].style.border = "1px solid red";
+            return false;
+        }
+        if (name == "password"){
+            error_passwd.style.display = "block";
+            document.forms["form-login"]["password"].style.border = "1px solid red";
+            return false;
+        }
     }
 }
+
+user.addEventListener("textInput", userInput);
+passwd.addEventListener("textInput", passwdInput);
 
 function validarButton() {
-    if (user == "" || user == null) {
-        document.getElementById("error-login").innerHTML = "Debe ingresar su usuario";
+    if (user.value.lenght == 0 || user.value == "" || user.value == null) {
         error_user.style.display = "block";
+        document.forms["form-login"]["usuario"].style.border = "1px solid red";
         return false;
     }
 
-    if (passwd == "" || passwd == null){
-        document.getElementById("error-login").innerHTML = "Debe ingresar su contraseña";
-        alert("Debe ingresar su contraseña");
+    if (passwd.value.lenght == 0 || passwd.value == "" || passwd.value == null){
+        error_passwd.style.display = "block";
+        document.forms["form-login"]["password"].style.border = "1px solid red";
         return false;
     }
 }
 
-function validarForm(){
-    if (user.lenght == 0) {
-        error_user.style.display = "block";
-        user.focus();
+function userInput(){
+    if (user.value.lenght != 0){
+        error_user.style.display = "none";
+        document.forms["form-login"]["usuario"].style.border = "1px solid grey";
+        return true;
+    }
+}
+function passwdInput(){
+    if (passwd.value.lenght != 0){
+        error_passwd.style.display = "none";
+        document.forms["form-login"]["password"].style.border = "1px solid grey";
+        return true;
     }
 }
