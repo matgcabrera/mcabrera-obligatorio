@@ -40,6 +40,18 @@ var getJSONData = function(url){
     });
 }
 
+
+//entrega2 grupal
+miStorage = window.sessionStorage;
+function guardarUsuario(){
+  var userDisplay = document.getElementById("iduser").value;
+  sessionStorage.setItem("user",userDisplay);
+}
+
+document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("displayuser").innerHTML = miStorage.getItem("user");
+});
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
