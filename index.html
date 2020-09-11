@@ -14,7 +14,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    html,
+    body {
       height: 100%;
     }
 
@@ -38,9 +39,9 @@
 
     #loginbutton {
       background: gray;
-      border:none;
-      margin-top:25px;
-      color:white;
+      border: none;
+      margin-top: 25px;
+      color: white;
       padding: 10px;
       font-size: 1em;
       font-weight: bold;
@@ -52,6 +53,7 @@
       height: 40px;
       width: 90%;
     }
+
     #error-user,
     #error-passwd {
       display: none;
@@ -63,7 +65,6 @@
       float: inline-start;
       width: 100%;
     }
-
   </style>
 </head>
 
@@ -76,36 +77,40 @@
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>--->
-    
+
     <div class="signin col-md-5">
       <h1>Login</h1>
       <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="">
-                <div id="login-box" class="col-md-12">
-                    <form id="form-login" onsubmit="return validarForm()" method="get" action="index2.html">
-                      <img src="img/login.png" alt="Login" id="loginpic">
-                        
-                        <div class="form-group">
-                          <input id="iduser" type="text" name="usuario" placeholder="Usuario" onblur="validarLogin(this.value, this.name)" class="form-control">
-                          <div id="error-user">Debe ingresar su usuario</div>
-                          </div>
-                        <div class="form-group">
-                          <input id="idpassword" type="password" name="password" placeholder="Contraseña" onblur="validarLogin(this.value, this.name)" class="form-control">
-                          <div id="error-passwd">Debe ingresar su contraseña</div>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" id="loginbutton" class="btn btn-info btn-md" value="Ingresar" onclick="guardarUsuario()">
-                        </div>
-                    </form>
+          <div id="login-column" class="">
+            <div id="login-box" class="col-md-12">
+              <form id="form-login" onsubmit="return validarForm()" method="get" action="index2.html">
+                <img src="img/login.png" alt="Login" id="loginpic">
+
+                <div class="form-group">
+                  <input id="iduser" type="text" name="usuario" placeholder="Usuario"
+                    onblur="validarLogin(this.value, this.name)" class="form-control">
+                  <div id="error-user">Debe ingresar su usuario</div>
                 </div>
+                <div class="form-group">
+                  <input id="idpassword" type="password" name="password" placeholder="Contraseña"
+                    onblur="validarLogin(this.value, this.name)" class="form-control">
+                  <div id="error-passwd">Debe ingresar su contraseña</div>
+                </div>
+                <div class="form-group">
+                  <input type="submit" id="loginbutton" class="btn btn-info btn-md" value="Ingresar"
+                    onclick="guardarUsuario()">
+                </div>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     </div>
   </div>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
+
 </html>
