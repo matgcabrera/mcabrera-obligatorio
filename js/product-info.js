@@ -33,9 +33,9 @@ function showComments(array) {
 
         for (let a = 0; a < 5; a++){
             if(comment.score>a){
-                starTreatment += "★";
+                starTreatment += `<span class="fa fa-star checked"></span>`;
             } else {
-                starTreatment += "☆";
+                starTreatment += `<span class="fa fa-star"></span>`;
             }
 
         }
