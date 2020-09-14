@@ -23,17 +23,29 @@ function showImagesGallery(array) {
 function showComments(array) {
 
     let htmlContentToAppend = "";
+    
+
+    //Leo score y lo convierto en estrellas ascii
 
     for (let i = 0; i < array.length; i++) {
         let comment = array[i];
+        let starTreatment = "";
 
+        for (let a = 0; a < 5; a++){
+            if(comment.score>a){
+                starTreatment += "★";
+            } else {
+                starTreatment += "☆";
+            }
+
+        }
         htmlContentToAppend+= `
         <div class="list-group-item list-group-item-action">
           <div class="row">
             <div class="col">
               <div class="d-flex w-90 justify-content-between">
-                <h4 class="mb-1">`+ comment.user + `</h4>
-                <small class="text-muted">calificacion ` + comment.score + "/5 - " + comment.dateTime + `</small>
+                <h4 class="mb-1">`+ comment.user + " - " + starTreatment +`</h4>
+                <small class="text-muted">` + comment.dateTime + `</small>
               </div>
               <p>"` + comment.description + `"</p>
             </div>
