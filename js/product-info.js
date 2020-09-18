@@ -1,5 +1,7 @@
 var product = {};
 var commentsArray = [];
+var productsArray = [];
+var relatedProductstoLoad = [];
 
 function showImagesGallery(array) {
 
@@ -57,6 +59,22 @@ function showComments(array) {
     }
 }
 
+/*function searchProducts(array) {
+    let htmlContentToAppend = "";
+
+    for (let i=0; i<array.lenght; i++){
+        let relatedProd = array[i];
+        
+        for(a=0; a<relatedProductstoLoad; a++){
+            if (relatedProd === relatedProductstoLoad){
+                document.getElementById("relatedProducts").innerHTML = i;
+            }
+        }
+
+        }
+    } 
+} */
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -76,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productCostHTML.innerHTML = product.cost + " " + product.currency;
             vendidosCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
+            relatedProductstoLoad = product.relatedProducts;
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
