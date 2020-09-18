@@ -143,3 +143,7 @@ a.custom-card:hover {
 .userDropdown {
   color: white;
 }
+.userDropdown:hover{
+  color:white;
+  text-decoration: underline;
+}
