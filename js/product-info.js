@@ -4,6 +4,7 @@ var productsArray = [];
 var relatedProductstoLoad = [];
 var relatedProductsArray = [];
 
+//Cargo las imagenes dentro del carrousel
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
@@ -28,6 +29,7 @@ function showImagesGallery(array) {
     }
 }
 
+//Cargo los comentarios preexistentes
 function showComments(array) {
 
     let htmlContentToAppend = "";
@@ -65,6 +67,7 @@ function showComments(array) {
     }
 }
 
+//Muestro productos relacionados
 function showRelatedProducts(array) {
     let htmlContentToAppend = "";
 
