@@ -29,7 +29,7 @@ function carritoProducts(cartArray) {
                     <input id="inputCantidad`+ i + `"class="col-xs-1 number input-sm countinput" type="number" value="` + cart.count + `" onchange="calcSubtotal(` + cart.unitCost + `, ` + i + `)">
                     <br>
                     <p>Subtotal: </p>
-                    <div id="subtotalId`+ i + `" >0</div>
+                    <div id="subtotalId`+ i + `" >`+ cart.unitCost * cart.count +`</div>
                 </div>
             </div>
         </div>
