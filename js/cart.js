@@ -2,6 +2,7 @@ var cartArray = [];
 var subIndividual = 0;
 
 function calcSubtotal(cost, idNumber,) {
+    //Toma costo y cantidad de un producto idNumber, devuelve subtotal en tiempo real
     var cartCount = document.getElementById("inputCantidad" + idNumber).value;
     var sub = cost * cartCount;
     document.getElementById("subtotalId" + idNumber).innerHTML = sub;
