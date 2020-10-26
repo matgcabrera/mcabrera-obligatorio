@@ -1,6 +1,7 @@
 var cartArray = [];
 var subIndividual = 0;
 var arrayCuenta = [];
+var subtotalGlobal=0;
 
 function calcSubtotal(cost, idNumber, currency) {
     //Toma costo y cantidad de un producto idNumber, devuelve subtotal en tiempo real
@@ -33,9 +34,9 @@ function calcSubGlobal(){
     }
     var htmlContentToAppend=`Subtotal: ` + total + ` USD`;
     document.getElementById("subglobal").innerHTML = htmlContentToAppend;
-
+    subtotalGlobal = total;
 }
-function calcCostoEnvio(){
+function calcCostoEnvio(subglobalcurrent){
     //obtiene porcentaje seleccionado
     var selectedEnvio = document.getElementsByName("radioEnvio");
     var envioValue = 0;
@@ -44,7 +45,14 @@ function calcCostoEnvio(){
             envioValue = selectedEnvio[i].value;
         }
     }
-
+    //calcula porcentaje sobre subtotal
+    var envioValueDecimal = (envioValue / 100);
+    var envioCost = envioValueDecimal * subglobalcurrent;
+    var totalGlobal = envioCost + subglobalcurrent;
+    var htmlContentToAppend1 =`Costo envío: ` + envioCost + ` USD`;
+    var htmlContentToAppend2 =`Total: ` +totalGlobal+ ` USD`;
+    document.getElementById("envioglobal").innerHTML = htmlContentToAppend1;
+    document.getElementById("totalglobal").innerHTML = htmlContentToAppend2;
 }
 
 function carritoProducts(cartArray) {
@@ -79,6 +87,7 @@ function carritoProducts(cartArray) {
         document.getElementById("carritocontainer").innerHTML = htmlContentToAppend;
 
     }
+    calcSubGlobal();
 }
 
 function validateCalle(){
@@ -142,6 +151,7 @@ function validateRadiosEnvio() {
 //elementos HTML presentes.
 
 document.addEventListener("DOMContentLoaded", function (e) {
+
     getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             cartArray = resultObj.data;
@@ -150,4 +160,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
             carritoProducts(cartArray);
         }
     });
+
 });
