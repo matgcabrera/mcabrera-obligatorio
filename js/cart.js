@@ -95,8 +95,10 @@ function validateCalle(){
     var calle = document.getElementById("calle").value;
     if (calle == ""){
         document.getElementById("errorcalle").style.display = "block";
+
     } else {
         document.getElementById("errorcalle").style.display = "none";
+
     }
 }
 function validatePuerta(){
@@ -104,8 +106,10 @@ function validatePuerta(){
     var puerta = document.getElementById("puerta").value;
     if (puerta == ""){
         document.getElementById("errorpuerta").style.display = "block";
+    
     } else {
         document.getElementById("errorpuerta").style.display = "none";
+
     }
 }
 function validateEsquina(){
@@ -113,8 +117,10 @@ function validateEsquina(){
     var esquina = document.getElementById("esquina").value;
     if (esquina == ""){
         document.getElementById("erroresquina").style.display = "block";
+
     } else {
         document.getElementById("erroresquina").style.display = "none";
+  
     }
 }
 
@@ -123,8 +129,10 @@ function validatePais(){
     var selectedPais = document.getElementById("pais").value
     if (selectedPais=="empty"){
         document.getElementById("errorpais").style.display="block";
+    
     }else{
         document.getElementById("errorpais").style.display="none";
+    
     }
 }
 function validateRadiosEnvio() {
@@ -139,8 +147,10 @@ function validateRadiosEnvio() {
     }
     if(!isChecked) {
         document.getElementById("errorenvio").style.display = "block";
+
     } else {
         document.getElementById("errorenvio").style.display = "none";
+
     }
 }
 

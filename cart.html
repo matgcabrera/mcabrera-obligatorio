@@ -348,7 +348,7 @@
               <p class="mensajeError" id="errorenvio">Seleccione una forma de envío</p>
               <br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#metodoPagoModal"
-                onclick="validateCalle(); validatePuerta(); validateEsquina(); validatePais(); validateRadiosEnvio();">Siguiente</button>
+                onclick="return validateCalle(); validatePuerta(); validateEsquina(); validatePais(); validateRadiosEnvio();">Siguiente</button>
             </div>
           </div>
         </form>
@@ -364,7 +364,7 @@
         <p id="totalglobal">Total: </p>
         <br>
         <button type="button" class="btn btn-primary" onclick="calcSubGlobal();" data-toggle="modal" data-target="#confirmaCompraModal">Comprar</button>
-        <div
+        
       </div>
     </div>
   </div>
