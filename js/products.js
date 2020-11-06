@@ -46,8 +46,9 @@ function showProductList(array){
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
-                htmlContentToAppend += `
-                <div class="list-group-item list-group-item-action" onclick="callProductinfo()">
+                htmlContentToAppend += 
+                
+            /*    <div class="list-group-item list-group-item-action" onclick="callProductinfo()">
                     <div class="row">
                         <div class="col-3">
                             <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -61,7 +62,25 @@ function showProductList(array){
                         <p>` + product.cost +` ` + product.currency +`</p>
                         </div>
                     </div>
+                </div> */
+                `
+                <a href="product-info.html" class="col-md-4 shadow-sm card">
+                <div class="list-group-item list-group-item-action">
+                  <div class="row">
+                    <div class="col-3">
+                    <img src="`+ product.imgSrc +`" alt="`+ product.description +`" class="card-img-top" width="100%">
+                  </div>
+                    <div class="card-body">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ product.name +`</h4>
+                        <small class="">` + product.soldCount + ` artículos vendidos</small>
+                      </div>
+                      <p>`+product.description+`</p>
+                      <small class="">`+ product.cost +' '+ product.currency +`</small>
+                    </div>
+                  </div>
                 </div>
+              </a>
                 `
             }
         document.getElementById("products-container").innerHTML = htmlContentToAppend;
@@ -81,9 +100,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductList();
 }
 
-function callProductinfo(){
-    window.location.href="product-info.html";
-}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

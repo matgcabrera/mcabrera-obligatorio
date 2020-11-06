@@ -42,7 +42,12 @@ function validarForm() {
         document.forms["form-login"]["password"].style.border = "1px solid red";
         return false;
     }
+    sessionStorage.setItem("user",userDisplay);
+    sessionStorage.setItem("isLoggedIn",true);
+    return true;
 }
+
+
 
 //remueve mensaje de error al completar campo
 function userInput(){

@@ -40,6 +40,10 @@ var getJSONData = function(url){
     });
 }
 
+//login
+sessionStorage.setItem('isLoggedIn', 'false');
+currentLocation = window.location.href;
+
 
 //entrega2 grupal
 miStorage = window.sessionStorage;
@@ -49,16 +53,15 @@ function guardarUsuario(){
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
+  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  if (isLoggedIn == false && currentLocation != "login.html") {
+    window.location.replace("login.html");
+  }
   document.getElementById("displayuser").innerHTML = miStorage.getItem("user");
 });
 
 //entrega4 grupal
 function logout(){
   window.sessionStorage.removeItem("user");
-}
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-});
+}
