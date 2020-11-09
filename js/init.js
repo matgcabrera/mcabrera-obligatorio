@@ -53,8 +53,8 @@ function guardarUsuario(){
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
-  var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-  if (isLoggedIn == false && currentLocation != "login.html") {
+  //var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  if (sessionStorage.getItem("isLoggedIn") == false ) {
     window.location.replace("login.html");
   }
   document.getElementById("displayuser").innerHTML = miStorage.getItem("user");
@@ -62,6 +62,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 //entrega4 grupal
 function logout(){
-  window.sessionStorage.removeItem("user");
-
+  window.sessionStorage.clear();
+  window.localStorage.clear();
 }

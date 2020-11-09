@@ -43,7 +43,8 @@ function validarForm() {
         return false;
     }
     sessionStorage.setItem("user",userDisplay);
-    sessionStorage.setItem("isLoggedIn",true);
+    sessionStorage.removeItem("isLoggedIn");
+    sessionStorage.setItem("isLoggedIn", true);
     return true;
 }
 
