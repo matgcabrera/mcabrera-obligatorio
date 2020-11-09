@@ -7,6 +7,8 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+var miStorage = window.sessionStorage;
+var currentLocation = window.location.href;
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -41,27 +43,28 @@ var getJSONData = function(url){
 }
 
 //login
-sessionStorage.setItem('isLoggedIn', 'false');
-currentLocation = window.location.href;
-
 
 //entrega2 grupal
-miStorage = window.sessionStorage;
+
 function guardarUsuario(){
   var userDisplay = document.getElementById("iduser").value;
-  sessionStorage.setItem("user",userDisplay);
+  miStorage.setItem("user",userDisplay);
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
-  //var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-  if (sessionStorage.getItem("isLoggedIn") == false ) {
-    window.location.replace("login.html");
-  }
   document.getElementById("displayuser").innerHTML = miStorage.getItem("user");
+  const ISLOGGEDIN = miStorage.getItem("isLoggedIn");
+  if (!ISLOGGEDIN && location.href !== "login.html"){
+    location.href = "login.html"
+  }
+  if (ISLOGGEDIN && location.href == "login.html"){
+    location.href = "/"
+  }
 });
 
 //entrega4 grupal
 function logout(){
   window.sessionStorage.clear();
   window.localStorage.clear();
+  location.reload();
 }

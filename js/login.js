@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+    sessionStorage.setItem("isLoggedIn", true);
 });
 //guardar elementos html en variables
 var user = document.forms["form-login"]["usuario"];
@@ -43,8 +43,7 @@ function validarForm() {
         return false;
     }
     sessionStorage.setItem("user",userDisplay);
-    sessionStorage.removeItem("isLoggedIn");
-    sessionStorage.setItem("isLoggedIn", true);
+
     return true;
 }
 
